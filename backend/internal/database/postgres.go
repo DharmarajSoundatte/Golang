@@ -12,7 +12,7 @@ import (
 )
 
 // NewPostgres opens a new PostgreSQL connection, verifies it with a ping,
-// configures the pool, and runs auto-migrations.
+// configures the pool, and runs auto-migrations.Dharmaraj
 func NewPostgres(cfg *config.Config) (*gorm.DB, error) {
 	logLevel := logger.Silent
 	if cfg.IsDevelopment() {
