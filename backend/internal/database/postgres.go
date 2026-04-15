@@ -43,11 +43,24 @@ func NewPostgres(cfg *config.Config) (*gorm.DB, error) {
 		return nil, fmt.Errorf("ping failed — check credentials/network/CA cert: %w", err)
 	}
 
-	// Auto-migrate all models
+	// Dharmaraj's models
 	if err := db.AutoMigrate(
 		&models.User{},
 	); err != nil {
-		return nil, fmt.Errorf("auto-migrate: %w", err)
+		return nil, fmt.Errorf("auto-migrate (dharmaraj): %w", err)
+	}
+
+	// Sanjana's models
+	if err := db.AutoMigrate(
+		&models.Teacher{},
+		&models.Class{},
+		&models.ClassStudent{},
+		&models.Attendance{},
+		&models.Grade{},
+		&models.Timetable{},
+		&models.Announcement{},
+	); err != nil {
+		return nil, fmt.Errorf("auto-migrate (sanjana): %w", err)
 	}
 
 	return db, nil

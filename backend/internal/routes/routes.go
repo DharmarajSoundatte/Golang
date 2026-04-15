@@ -67,6 +67,9 @@ func Setup(db *gorm.DB, cfg *config.Config, log *zap.Logger) http.Handler {
 					r.Delete("/{id}", userHandler.DeleteUser)
 				})
 			})
+
+			// Sanjana's modules
+			RegisterSanjanaRoutes(r, db, log)
 		})
 	})
 
