@@ -1,0 +1,23 @@
+# ── Backend Go .gitignore ─────────────────────────────────────────────────────
+
+# Environment secrets — never commit
+.env
+
+# Build output
+bin/
+dist/
+
+# Go test cache & coverage
+*.test
+*.out
+coverage.html
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
